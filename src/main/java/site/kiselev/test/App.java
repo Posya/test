@@ -31,7 +31,7 @@ public class App {
     /**
      * Хэш для накопления результата
      */
-    private HashMap<String, Long> result = new HashMap<>();
+    private Map<String, Long> result = new TreeMap<>();
 
     /**
      * Функция для парсинга каждой строки и накопления результата.
@@ -125,7 +125,7 @@ public class App {
 
     /**
      * Парсит дату в соответствии с форматом, аггрегирует всё до AGGREGATION_DELTA,
-     * Возвращает выравненное по дельте время в миллисекундах
+     * Возвращает выравненное по дельте время в секундах
      *
      * @param string    -
      * @return          -
