@@ -28,8 +28,14 @@ public class App {
      */
     private static String DATE_PARSE_FORMAT = "dd/MMM/yyyy:HH:mm:ss Z";
 
+    /**
+     * Хэш для накопления результата
+     */
     private HashMap<String, Long> result = new HashMap<>();
 
+    /**
+     * Функция для парсинга каждой строки и накопления результата.
+     */
     private final Consumer<String> parseFunc = (s) -> {
         String[] line = parseLine(s);
         try {
@@ -66,9 +72,7 @@ public class App {
 
     public static void main(String[] args) {
         App app = new App();
-        
         app.forEachLine(FILE_NAME, app.parseFunc);
-
 
         for (String key : app.result.keySet()) {
             System.out.println(key + Long.toString(app.result.get(key)));
